@@ -1,0 +1,12 @@
+services:
+  acmp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: acmp-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    extra_hosts:
+      # Allows the container to reach Kong on your host machine
+      - "host.docker.internal:host-gateway"
